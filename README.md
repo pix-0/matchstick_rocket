@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# 🔥 Burnt Matchstick Detector
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based web application that detects whether a matchstick is burnt or not from uploaded images. The app features an interactive door that unlocks when a burnt matchstick is detected.
 
-## Available Scripts
+## 🎯 Features
 
-In the project directory, you can run:
+- **Image Upload**: Drag and drop or click to upload images
+- **Matchstick Detection**: Visual representation of matchstick state (burnt/unburnt)
+- **Interactive Door**: 3D animated door that opens when burnt matchstick is detected
+- **Malayalam Text**: Displays status messages in Malayalam
+- **Modern UI**: Beautiful gradient background and smooth animations
+- **Responsive Design**: Works on desktop and mobile devices
 
-### `npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (version 14 or higher)
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd burnt-matchstick-detector
+```
 
-### `npm run build`
+2. Install dependencies:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎮 How to Use
 
-### `npm run eject`
+1. **Upload an Image**: 
+   - Drag and drop an image file onto the upload area
+   - Or click the upload area to browse and select an image
+   - Supported formats: JPG, PNG, GIF
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Wait for Analysis**:
+   - The app will simulate image processing (2 seconds)
+   - A random result will be generated for demo purposes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **View Results**:
+   - If matchstick is detected as burnt: Door will automatically unlock after 3 seconds
+   - If matchstick is unburnt: Door remains locked
+   - Status messages are displayed in Malayalam
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Interactive Door**:
+   - Click the door to manually toggle its state
+   - Door has smooth 3D rotation animation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🏗️ Project Structure
 
-## Learn More
+```
+src/
+├── components/
+│   ├── Matchstick.js          # Matchstick visualization component
+│   ├── Matchstick.css         # Matchstick styles
+│   ├── UploadSection.js       # Image upload component
+│   ├── UploadSection.css      # Upload section styles
+│   ├── Door.js               # Interactive door component
+│   └── Door.css              # Door styles
+├── App.js                    # Main application component
+├── App.css                   # Main application styles
+└── index.js                  # Application entry point
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎨 Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Matchstick Component
+- Displays animated matchstick state
+- Shows burnt/unburnt status in Malayalam
+- Automatically hides after 2 seconds when burnt
 
-### Code Splitting
+### UploadSection Component
+- Drag and drop file upload
+- Image preview functionality
+- File type validation
+- Responsive design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Door Component
+- 3D animated door with rotation
+- Interactive click to toggle
+- Visual feedback for open/closed states
 
-### Analyzing the Bundle Size
+## 🔧 Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Adding Real Detection Logic
+To implement actual image detection, replace the random logic in `App.js`:
 
-### Making a Progressive Web App
+```javascript
+const handleImageUpload = (file) => {
+  setUploadedImage(file);
+  // Add your image processing logic here
+  // Example: Call an AI/ML API for detection
+  processImage(file).then(result => {
+    setIsBurnt(result.isBurnt);
+    if (result.isBurnt) {
+      setTimeout(() => setIsDoorOpen(true), 3000);
+    }
+  });
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Styling
+- Modify CSS files in the `components/` directory
+- Update color schemes in `App.css`
+- Customize animations and transitions
 
-### Advanced Configuration
+## 🐛 Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Common Issues
 
-### Deployment
+1. **Images not loading**: Ensure image files are in the correct format
+2. **Upload not working**: Check browser console for errors
+3. **Styling issues**: Clear browser cache and restart development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Development
 
-### `npm run build` fails to minify
+- Run tests: `npm test`
+- Build for production: `npm run build`
+- Eject from Create React App: `npm run eject`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📞 Support
+
+For support and questions, please open an issue in the repository.

@@ -1,0 +1,17 @@
+.game-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; }
+.game-container { position: relative; width: 100%; height: 100%; }
+.game-container canvas { display: block; width: 100vw; height: 100vh; background: linear-gradient(#071022,#08152a); }
+#scoreBox{
+  position: fixed; left:14px; top:14px; z-index:3;
+  background: rgba(0,0,0,0.35); color:#ffd56b; padding:8px 12px; border-radius:8px; font-weight:700;
+  font-family: monospace;
+}
+#hint{ position: fixed; right:14px; top:14px; color:#9aa; font-size:13px; background: rgba(0,0,0,0.25); padding:8px 10px; border-radius:8px; }
+.pausedOverlay{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:4; pointer-events:none; }
+.panel{ background:rgba(0,0,0,0.6); color:#fff; padding:18px 22px; border-radius:10px; text-align:center; pointer-events:auto;}
+.panel button { margin-top:10px; padding:8px 12px; border-radius:8px; border:none; background:#ffd56b; color:#111; font-weight:700; cursor:pointer; }
+.exit-btn { position: fixed; right: 14px; bottom: 14px; background:#ffd56b; color:#111; border:none; border-radius:8px; padding:8px 12px; font-weight:700; cursor:pointer; z-index:5; }
+
+.code-badge { position: fixed; left: 50%; transform: translateX(-50%); top: 14px; background: rgba(0,0,0,0.4); color:#ffd56b; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); z-index:3; font-family: monospace; }
+
+

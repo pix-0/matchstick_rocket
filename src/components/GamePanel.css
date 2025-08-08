@@ -1,0 +1,51 @@
+.game-panel {
+  padding: 16px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 24px rgba(255,0,0,0.15);
+  width: 100%;
+  max-width: 520px;
+}
+.game-panel h3 { margin: 0 0 8px 0; color: var(--text-2); }
+.game-panel .hint { margin: 0 0 12px 0; color: #ffdede; font-size: 0.95rem; }
+.code-form { display: flex; gap: 8px; }
+.code-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(20,20,20,0.9);
+  color: #fff;
+}
+.go-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(135deg, #ff5e57, #ff3b30);
+  color: #fff;
+  cursor: pointer;
+}
+.suggestions { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.suggestions button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px dashed rgba(255,255,255,0.22);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.celebrate-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 999;
+}
+.confetti { position: absolute; width: 6px; height: 10px; opacity: 0.9; }
+
+

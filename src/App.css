@@ -1,38 +1,265 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  background: transparent;
+  padding: 20px;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,0,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.App-header {
+  text-align: center;
   color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  animation: fadeInDown 1s ease-out;
+  flex-shrink: 0;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-@keyframes App-logo-spin {
+.App-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+  color: var(--text-2);
+}
+
+.reset-button {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  background: linear-gradient(135deg, #ff6666, #ff0000);
+}
+
+/* New single card layout */
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  min-height: calc(100vh - 140px);
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out 0.3s both;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.main-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 30px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Upload row */
+/* Remove separate upload row; image sits in the center column */
+
+/* Three-column aligned grid */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 520px) 1fr;
+  align-items: stretch;
+  justify-items: center;
+  gap: 30px;
+}
+
+.grid-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Override legacy absolute positioning within grid */
+.layout-grid .matchstick-area,
+.layout-grid .door-area,
+.layout-grid .upload-area {
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+  z-index: auto;
+  min-height: 260px;
+}
+
+.layout-grid .door-area { max-width: 260px; text-align: center; }
+.layout-grid .matchstick-area { max-width: 260px; }
+.layout-grid .upload-area { width: 100%; max-width: 520px; }
+
+/* Secondary row for matchbox */
+.secondary-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.secondary-row .matchbox-area { max-width: 260px; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .main-card {
+    padding: 20px;
+  }
+    .layout-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+  
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .App-header p {
+    font-size: 1rem;
+  }
+  
+  .main-card {
+    padding: 15px;
+  }
+  
+  .layout-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .layout-grid .matchstick-area { min-height: 220px; }
+}
+
+@media (max-width: 480px) {
+  .App-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .main-card {
+    padding: 10px;
+  }
+  
+  .layout-grid { gap: 16px; }
+}
+
+.status-section {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 20, 0.9);
+  padding: 15px 25px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.status-section h3 {
+  margin: 0 0 8px 0;
+  color: #ffcccc;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.status-section p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeInDown {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
