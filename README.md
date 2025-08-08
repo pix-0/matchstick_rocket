@@ -31,11 +31,14 @@ If it’s burnt, we set it on fire (digitally). If it’s fresh, we send it into
 ## screenshot
 ## Screenshots
 
-![Detection Screen](assets/screenshot1.png) *User uploads matchstick image, AI decides burnt/fresh.*
+![Detection Screen] ![screenshot1 png](https://github.com/user-attachments/assets/c78e638e-47da-4b6f-ae96-95289f09b527)
+*User uploads matchstick image, AI decides burnt/fresh.*
 
-![Burn Animation](assets/screenshot2.png) *Burnt matchstick ignites and exits the scene.*
+![Burn Animation] ![screenshot2 png](https://github.com/user-attachments/assets/7c4ab21d-50eb-4c8a-9e9d-0d9859db6c62)
+*Burnt matchstick ignites and exits the scene.*
 
-![Matchstick Game](assets/screenshot3.png) *Fresh matchstick in Jetpack Joyride–style obstacle course.*
+![Matchstick Game]![screenshot3 png](https://github.com/user-attachments/assets/386005ea-4f9a-4426-b528-dfa18f7a5058)
+ *Fresh matchstick in Jetpack Joyride–style obstacle course.*
 
 ##video
 
