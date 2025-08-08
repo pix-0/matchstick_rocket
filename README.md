@@ -36,7 +36,7 @@ npm install
 npm start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [matchstick](https://vercel.com/milens-projects-0a82689d/burnt-matchstick-detector/DHJ1QwWasf76frKTT9u6rjLeMTyL) to view it in the browser.
 
 ## 🎮 How to Use
 
