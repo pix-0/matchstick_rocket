@@ -61,4 +61,5 @@ If it’s burnt, we set it on fire (digitally). If it’s fresh, we send it into
 git clone https://github.com/pix-O/matchstick_rocket.git
 cd matchstick_rocket
 npm install
+https://matchstickrocket.netlify.app/
 Made with ❤️ at TinkerHub Useless Projects
